@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Set the viewport so this responsive site displays correctly on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Huddle</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/new_styles.css" rel="stylesheet" type="text/css">
+    <link href="../bootstrap/includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../bootstrap/includes/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/theme.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/theme2_carousel.css" rel="stylesheet" type="text/css" />
+    <link href="../css/mcColorPicker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
+    <script src="/easyrtc/easyrtc.js"></script>
+    <style type="text/css">
+        #share-buttons img {
+            width: 35px;
+            padding: 5px;
+            border: 0;
+            box-shadow: 0;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site header and navigation -->
+    <header class="top logo_header" role="header">
+        <section id="header_sec" class="container">
+            <div class="left logo_holder navbar-brand pull-left col-md-10">Placeholder for Logo</div>
+            <div class="right logo_holder navbar-brand pull-right col-md-10">Placeholder for Logo</div>
+        </section>
+    </header>
+    <!--<div id="example2">
+        <div id="shareme" data-url="" data-text="Join Huddle meeting"></div>
+    </div>-->
+        <!--<a class="links" onclick='shareFB()' href="#"> Share! </a>
+        <a href="http://readwrite.com/2014/06/25/aereo-supreme-court-loss-copyright#_tid=social-tools&amp;_tact=click+%3A+facebook-social-custom&amp;_tval=1&amp;_tlbl=Position%3A+1" class="facebook social-custom parsed" target="_blank" data-medium="facebook_share" data-social-action="share" sl-processed="1"></a>-->
+        <div id="tabDiv">
+            <nav class="options" id="floatingMenu">
+                <ul id="options_list">
+                    <li>
+                        <button id="textBlock_button" class="action-text-edit icon">&nbsp;</button>
+                    </li>
+                    <li>
+                        <button id="whiteBoard_button" class="action-whiteBoard-inactive icon">&nbsp;</button>
+                    </li>
+                    <li>
+                        <button id="videoCall_button" class="action-video-meeting-inactive icon">&nbsp;</button>
+                    </li>
+                </ul>
+            </nav>
+            <!--<button type="button" class="showBtn btn btn-primary btn-xs" id="hideBtn">Hide</button>-->
+        </div>
+        <div id="total_wrapper">
+            <div id="nav_holder" class="content-right navbar-collapse">
+                <nav class="navbar-collapse collapse user-list" role="navigation">
+                    <aside id="sidebar-wrapper">
+                        <h3 id="welcome_header">Welcome</h3>
+                        <div class="invite-heading well">
+                            Invite
+                            <i class="fa fa-facebook-square fa-2x" id="fbShare" data-url="" data-text="Join Huddle meeting"></i>
+                            <i class="fa fa-google-plus-square fa-2x" id="gPlusShare" data-url="" data-text="Join Huddle meeting"></i>
+                            <!--<i class="fa fa-hand-o-right"></i>-->
+                            <!--<div class="fb-share-button customFbShare" data-href="https://developers.facebook.com/docs/plugins/" data-type="button"></div>-->
+                            <!--<div class="customGShare">
+                                <div class="g-plus" data-action="share" data-annotation="none" data-height="23" data-href="http://localhost:5000/" id="gPlus"></div>
+                            </div>-->
+                        </div>
+                        <section class="section_user" id="userSection"></section>
+                    </aside>
+                    <!--</div>-->
+                </nav>
+            </div>
+            <!--<div id="total_wrapper">-->
+            <button class="navbar-toggle" style="z-index:1000!important" data-toggle="collapse" data-target=".navbar-collapse" id="navbarToggleButton">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+            <div class="middle write_portion">
+                <div class="container content row" id="chat_container">
+                    <div class="col-md-9 chat_content" id='textArea'>
+                        <!--<textarea id="text_input" class="write_area form-control" spellcheck="false"></textarea>-->
+                        <label for="mode" style="font-family:Verdana;font-size:smaller">Language Mode:</label>
+                        <select id="mode" style="width:7%;font-family:Verdana;cursor:pointer">
+                            <option>text</option>
+                            <option>c_cpp</option>
+                            <option>clojure</option>
+                            <option>coffee</option>
+                            <option>csharp</option>
+                            <option>css</option>
+                            <option>dart</option>
+                            <option>django</option>
+                            <option>erlang</option>
+                            <option>html</option>
+                            <option>java</option>
+                            <option>javascript</option>
+                            <option>json</option>
+                            <option>latex</option>
+                            <option>lisp</option>
+                            <option>lua</option>
+                            <option>mysql</option>
+                            <option>pascal</option>
+                            <option>perl</option>
+                            <option>php</option>
+                            <option>python</option>
+                            <option>scala</option>
+                            <option>sql</option>
+                            <option>typescript</option>
+                            <option>vhdl</option>
+                            <option>xml</option>
+                        </select>
+                        <div id="text_input" class="write_area form-control" spellcheck="false"></div>
+                    </div>
+                    <div class="displayNone" id="drawArea">
+                        <div id="canvasHolder">
+                            <canvas id="paper">
+                                browser need to support canvas
+                            </canvas>
+                        </div>
+                        <div id="left_div" class="control_divs">
+                            <div class="draw-icon-inactive left menu toolBox" id="stroke">
+                                <li>
+                                    <a id="draw"></a>
+                                    <ul id="colors">
+                                        <div id="colorpicker" style="display: block;">
+                                            <div id="hexBox"></div>
+                                            <div id="bgBox"></div>
+                                            <div id="load_cb"></div>
+                                            <script>
+                                            $("#load_cb").load("color.html");
+                                            </script>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </div>
+                        </div>
+                        <div id="right_div" class="control_divs">
+                            <div class="erase-icon-inactive left menu toolBox" id="clear">
+                                <li>
+                                    <a></a>
+                                </li>
+                            </div>
+                        </div>
+                        <!--White Board-->
+                    </div>
+                    <div class="displayNone" id="videoCall">
+                        <button id="hangUp" style="position: absolute;background: none;border: none;z-index: 1000;display: none;">
+                            <img src="../images/hangup_32x32.png">
+                        </button>
+                        <video id="caller" class="focusCaller" autoplay="autoplay" style="display: none" name=""></video>
+                        <img src="../images/blank_cam_pic.png" id="cam_image">
+                    </div>
+                </div>
+            </div>
+            <div id="notify" class="container notification"></div>
+            <div id="otherClients"></div>
+            <div class="jcarousel-wrapper footer" id="cam_footer">
+                <div class="jcarousel rev-container stream_holder" data-jcarousel="true">
+                    <ul style="left: 0; top: 0;" id="stream_list">
+                        <li style="width: 210px;" id="selfStream">
+                            <video id="self" autoplay="autoplay" muted style="border:1.3px solid;"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 2">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream1" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 1">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream2" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream3" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream4" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream5" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream6" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream7" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream8" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream9" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream10" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                        <li style="width: 210px;">
+                            <video id="otherStream11" autoplay="autoplay"></video>
+                            <!--<img src="images/blank_pic.jpg" alt="Image 3">-->
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="jcarousel-control-prev carousal_nav_btn" data-jcarouselcontrol="true" id="nextStream" style="display: none">‹</a>
+                <a href="#" class="jcarousel-control-next carousal_nav_btn" data-jcarouselcontrol="true" id="prevStream" style="display: none">›</a>
+            </div>
+        </div>
+        <!-- Include jQuery and bootstrap JS plugins -->
+        <!--<script type="text/javascript" src="../bootstrap/includes/jquery/jquery-2.1.0.min.js"></script>-->
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+        <!--<script type="text/javascript" src="../bootstrap/includes/bootstrap/js/bootstrap.js"></script>-->
+        <!--<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/site_control.js"></script>
+        <script type="text/javascript" src="../js/carousal.js"></script>
+        <script type="text/javascript" src="../js/carousal_responsive.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <!--<script src="../js/jquery.textchange.min.js"></script>-->
+        <script src="../js/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/channel/bcsocket.js"></script>
+        <script src="/share/share.js"></script>
+        <!--<script src="/share/textarea.js"></script>-->
+        <!--<script src="http://ajaxorg.github.com/ace/build/src/ace.js"></script>-->
+        <script src="/share/ace.js"></script>
+        <!--<script src="../js/jquery.typing-0.2.0.min.js"></script>
+        <script src="../js/JSON-js-master/json2.js"></script>-->
+        <script src="/share/json.js"></script>
+        <script src="../js/Sharrre-master/jquery.sharrre.min.js"></script>
+        <!--Google social plugin-->
+        <script type="text/javascript">
+            (function () {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/platform.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+        <!--Google social plugin-->
+</body>
+</html>

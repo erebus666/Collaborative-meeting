@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Huddle</title>
+    <link href="css/Whiteboard.css" rel="stylesheet" />
+</head>
+<body>
+
+    
+
+    <section>
+        <div id="wrapper">
+            <div class="left menu">
+                <ul>
+                    <li>
+                        <a id="clear">Clear</a>
+
+                    </li>
+                    <li>
+                    <li>
+                        <a id="draw">Draw</a>
+                        <ul id="colors">
+                            <li style="background-color:white;">
+                                <a>White</a>
+                            </li>
+                            <li style="background-color:red;">
+                                <a>Red</a>
+                            </li>
+                            <li style="background-color:orange;">
+                                <a>Orange</a>
+                            </li>
+                            <li style="background-color:yellow;">
+                                <a>Yellow</a>
+                            </li>
+                            <li style="background-color:green;">
+                                <a>Green</a>
+                            </li>
+                            <li style="background-color:blue;">
+                                <a>Blue</a>
+                            </li>
+                            <li style="background-color:indigo;">
+                                <a>Indigo</a>
+                            </li>
+                            <li style="background-color:violet;">
+                                <a>Violet</a>
+                            </li>
+                            <li style="background-color:black;">
+                                <a>Black</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <label for="sizer">Line Size:</label>
+                    <input name="sizer" id="sizer" type="number" min="5" max="100" step="5" />
+
+                </ul>
+            </div>
+        </div>
+        <div id="source" style="width: 800px;height:500px;  background-color: #F2F2F2;border: deepskyblue;border-style: solid">
+            <div style="width:800px;">
+                <canvas id="paper" width="800" height="500">
+                    browser need to support canvas
+                </canvas>
+            </div>
+        </div>
+    </section>
+
+    <!--<h2>Canvas <code>drawImage</code> example 1</h2>
+    <div>
+        <canvas id="canvas" width="370" height="370">Oh, sorry I don't get Canvas yet</canvas>
+    </div>
+    <span style="" id="result"></span>-->
+    <!--<section>
+            <label class="label">Destination:(this is how we will store this data in DB and pass it to all connected users)</label>
+            <div id="destination">
+                <canvas id="papers" width="500" height="500">
+                    browser need to support canvas
+                </canvas>
+            </div>
+        </section>-->
+    <script src="js/Whiteboard.js"></script>
+</body>
+</html>
